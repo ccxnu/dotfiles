@@ -11,6 +11,14 @@ export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
 
 # Enable colors and unique options
 autoload -U colors && colors	# Load colors
@@ -30,6 +38,10 @@ _comp_options+=(globdots)		# Include hidden files.
 # vi mode
 bindkey -v
 export KEYTIMEOUT=1
+
+# For move on history
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
@@ -59,5 +71,6 @@ source "$HOME/.config/zsh/aliasrc"
 source "$HOME/.config/zsh/.fzf.zsh"
 source "$HOME/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme"
 
+eval "$(zoxide init --cmd cd zsh)"
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

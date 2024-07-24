@@ -95,9 +95,10 @@
     # time                  # current time
     status                  # exit code of the last command
     command_execution_time  # duration of the last command
-    # =========================[ Line #2 ]=========================
-    newline                 # \n
     prompt_char             # prompt symbol
+    # =========================[ Line #2 ]=========================
+    # newline                 # \n
+    # prompt_char             # prompt symbol
   )
 
   # The list of segments shown on the right. Fill it with less important segments.
@@ -107,7 +108,7 @@
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     # =========================[ Line #2 ]=========================
-    newline                 # \n
+    #newline                 # \n
     # ip                    # ip address and bandwidth usage for a specified network interface
     # public_ip             # public IP address
     # proxy                 # system-wide http/https/ftp proxy
@@ -1012,7 +1013,7 @@
 
   ################[ goenv: go environment (https://github.com/syndbg/goenv) ]################
   # Goenv color.
-  typeset -g POWERLEVEL9K_GOENV_FOREGROUND=6
+  typeset -g POWERLEVEL9K_GOENV_FOREGROUND=5
   # Hide go version if it doesn't come from one of these sources.
   typeset -g POWERLEVEL9K_GOENV_SOURCES=(shell local global)
   # If set to false, hide go version if it's the same as global:
@@ -1067,11 +1068,11 @@
 
   #######################[ go_version: go version (https://golang.org) ]########################
   # Go version color.
-  typeset -g POWERLEVEL9K_GO_VERSION_FOREGROUND=6
+  typeset -g POWERLEVEL9K_GO_VERSION_FOREGROUND=12
   # Show go version only when in a go project subdirectory.
   typeset -g POWERLEVEL9K_GO_VERSION_PROJECT_ONLY=true
   # Custom icon.
-  # typeset -g POWERLEVEL9K_GO_VERSION_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_GO_VERSION_VISUAL_IDENTIFIER_EXPANSION=''
 
   #################[ rust_version: rustc version (https://www.rust-lang.org) ]##################
   # Rust version color.

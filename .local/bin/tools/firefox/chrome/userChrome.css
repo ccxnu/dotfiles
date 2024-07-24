@@ -280,3 +280,7 @@
 #navigator-toolbox[fullscreenShouldAnimate] {
   transition: 50ms !important;
 }
+/* Disable menubar on full screen */
+#fullscr-toggler {
+  display: none !important;
+}

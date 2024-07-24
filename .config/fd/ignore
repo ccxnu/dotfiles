@@ -12,9 +12,12 @@ Postman/
 .astro/
 .cargo/
 .eclipse/
+.floorp/
 .java/
 .p/
 .m2/
+.modelio/
+*modelio/
 .pki/
 .swt/
 .vscode-oss/
@@ -23,11 +26,14 @@ Postman/
 .icons/
 **.git/
 **.git
+.go/
 **node_modules/
 .npm/
 go/
+*.groovy/
 .mozilla/
 .ssh/
+.supermaven/
 .zoom/
 .texlive2023/
 **.idea/

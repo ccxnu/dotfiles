@@ -1,6 +1,6 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-gtk-theme-name="Desert-Dark"
+gtk-theme-name="GnomePro-Dark"
 gtk-icon-theme-name="Newaita-dark"
 gtk-font-name="Inter 10"
 gtk-cursor-theme-name="Posy"

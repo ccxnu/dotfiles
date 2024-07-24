@@ -1,7 +1,7 @@
 alias vi=nvim
 alias svi="sudo -E nvim"
 alias xi="sudo xbps-install"
-alias xr="sudo xbps-remove"
+alias xr="sudo xbps-remove -R"
 alias xq="xbps-query"
 alias im="nsxiv"
 
@@ -24,7 +24,7 @@ alias la='ls -Ah --color=tty'        #long list,show almost all,show type,human 
 alias ll='ls -lAh --color=tty'           #long list
 alias lh='ls -ld .* --color=tty'
 
-alias nmount="sudo mount /dev/sdb1 media -o uid=1000"
+alias nmount="sudo mount /dev/sdb1 /media -o uid=1000"
 alias unmount="sudo umount /dev/sdb1"
 
 alias cpdoc="cp ~/Ists/Plantilla/plantilla.tex"
@@ -35,10 +35,6 @@ alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias tme="tmux a -t me"
 
 alias za="zathura"
-
-alias lg=lazygit
-
-alias bib="nvim ~/Ists/refs.bib"
 
 alias count="find . -type f | wc -l"
 
@@ -54,5 +50,7 @@ alias cs="xclip -selection clipboard"
 alias vs="xclip -o -selection clipboard"
 
 alias sharescreen="xrandr --output HDMI1 --mode 1920x1080 --same-as eDP1"
-alias sharescreen_right="xrandr --auto --output HDMI-1 --auto --right-of eDP-1"
-alias sharescreen_left="xrandr --auto --output HDMI-1 --auto --left-of eDP-1"
+alias sharescreen_right="xrandr --auto --output HDMI1 --auto --right-of eDP1"
+alias sharescreen_left="xrandr --auto --output HDMI1 --auto --left-of eDP1"
+
+alias openx509="openssl x509 -inform der -noout -text -in"

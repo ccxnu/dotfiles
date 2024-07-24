@@ -6,6 +6,8 @@ mv Postman/ /opt/postman
 chmod +x /opt/postman/Postman
 ln -s /opt/postman/Postman /usr/local/bin/postman
 
+# Instal libsecret if it doesn't init.
+
 # CREATE DESKTOP ENTRY:
 vim /usr/share/applications/postman.desktop
 AND PUT THIS:

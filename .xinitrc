@@ -24,7 +24,7 @@ export PATH="/home/non/.local/share/fnm:$PATH"
 eval "$(fnm env)"
 
 ## Background
-/usr/bin/feh --no-fehbg --bg-fill '/home/non/Pictures/wallpaper/internationalSpace.jpg'
+/usr/bin/feh --no-fehbg --bg-fill '/home/non/Pictures/wallpaper/gato.png'
 ## Programs
 tmux has-session -t me || st -n me -e tmux new -s me &
 xss-lock slock &

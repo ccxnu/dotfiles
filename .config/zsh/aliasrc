@@ -23,6 +23,8 @@ alias ls='ls --color=tty'          #size,show type,human readable
 alias la='ls -Ah --color=tty'        #long list,show almost all,show type,human readable
 alias ll='ls -lAh --color=tty'           #long list
 alias lh='ls -ld .* --color=tty'
+alias lt='ls -l --color=tty'
+alias lo='ls -ld */ --color=tty '
 
 alias nmount="sudo mount /dev/sdb1 /media -o uid=1000"
 alias unmount="sudo umount /dev/sdb1"

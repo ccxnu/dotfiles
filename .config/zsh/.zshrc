@@ -8,12 +8,13 @@ fi
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 # History
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
-HISTDUP=erase
-setopt appendhistory
-setopt sharehistory
+export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
+export HISTSIZE=10000       # Número de comandos a mantener en memoria
+export SAVEHIST=10000      # Número de comandos a guardar en HISTFILE
+export HISTDUP=erase
+
+setopt appendhistory       # Añadir al historial, en lugar de sobrescribirlo
+setopt sharehistory        # Compartir historial entre terminales
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups

@@ -8,6 +8,7 @@
 
 # Home folders
 Postman/
+**/dist/
 .cache/
 .astro/
 .cargo/
@@ -34,9 +35,11 @@ go/
 .mozilla/
 .ssh/
 .supermaven/
+.svelte-kit/
 .zoom/
 .texlive2023/
 **.idea/
+.yarn/
 
 # Home files
 *.mariadb_history

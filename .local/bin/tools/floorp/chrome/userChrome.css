@@ -1,0 +1,95 @@
+/*************************************************************************************************************************************************************************************************************************************************************
+
+"userChrome.css" is a custom CSS file that can be used to specify CSS style rules for Floorp's interface (NOT internal site) using "chrome" privileges.
+For instance, if you want to hide the tab bar, you can use the following CSS rule:
+
+**************************************
+#TabsToolbar {                       *
+    display: none !important;        *
+}                                    *
+**************************************
+
+NOTE: You can use the userChrome.css file without change preferences (about:config)
+
+Quote: https://userChrome.org | https://github.com/topics/userchrome
+
+************************************************************************************************************************************************************************************************************************************************************/
+
+@charset "UTF-8";
+@-moz-document url(chrome://browser/content/browser.xhtml)
+{
+  /* Please write your custom CSS under this line*/
+  #TabsToolbar .tabbrowser-tab .tab-line {
+    display: none !important;
+  }
+
+  /*  Cool animation on tab/bookmark icons  */
+  .tabbrowser-tab:not([pinned]):not([selected]) .tab-icon-image,
+  .bookmark-item .toolbarbutton-icon {
+    opacity: 0 !important;
+    transition: 0.15s !important;
+    width: 0 !important;
+    padding-left: 16px !important;
+  }
+  .tabbrowser-tab:not([pinned]):hover .tab-icon-image,
+  .bookmark-item:hover .toolbarbutton-icon {
+    opacity: 100 !important;
+    transition: 0.15s !important;
+    display: inline-block !important;
+    width: 16px !important;
+    padding-left: 0 !important;
+  }
+  .tabbrowser-tab:not([hover]) .tab-icon-image,
+  .bookmark-item:not([hover]) .toolbarbutton-icon {
+    padding-left: 0 !important;
+  }
+
+  /*  X-button on the tabs  */
+  .tabbrowser-tab:not(:hover) .tab-close-button {
+    opacity: 0% !important;
+    transition: 0.3s !important;
+    display: -moz-box !important;
+  }
+  .tab-close-button[selected]:not(:hover) {
+    opacity: 45% !important;
+    transition: 0.3s !important;
+    display: -moz-box !important;
+  }
+  .tabbrowser-tab:hover .tab-close-button {
+    opacity: 50%;
+    transition: 0.3s !important;
+    background: none !important;
+    cursor: pointer;
+    display: -moz-box !important;
+  }
+  .tab-close-button:hover {
+    opacity: 100% !important;
+    transition: 0.3s !important;
+    background: none !important;
+    cursor: pointer;
+    display: -moz-box !important;
+  }
+  .tab-close-button[selected]:hover {
+    opacity: 100% !important;
+    transition: 0.3s !important;
+    background: none !important;
+    cursor: pointer;
+    display: -moz-box !important;
+  }
+
+  /*  Removes annoying border  */
+  #navigator-toolbox {
+    border: none !important;
+  }
+
+  /*  Removes the background from the urlbar while not in use  */
+  #urlbar:not(:hover):not([breakout][breakout-extend]) > #urlbar-background {
+    box-shadow: none !important;
+    background: #0000 !important;
+  }
+
+  /* Minimize fullscreen transition time */
+  #navigator-toolbox[fullscreenShouldAnimate] {
+    transition: 50ms !important;
+  }
+}

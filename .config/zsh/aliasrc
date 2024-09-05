@@ -48,6 +48,8 @@ function run() {
     ./a.out
 }
 
+alias mpvall="mpv --no-terminal . &"
+
 alias cs="xclip -selection clipboard"
 alias vs="xclip -o -selection clipboard"
 

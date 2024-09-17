@@ -4,6 +4,3 @@
 [submodule ".config/suckless"]
 	path = .config/suckless
 	url = git@github.com:ccxnu/suckless.git
-[submodule ".local/bin/tools/firefox/startpage"]
-	path = .local/bin/tools/firefox/startpage
-	url = git@github.com:ccxnu/startpage.git

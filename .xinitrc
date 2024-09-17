@@ -13,18 +13,18 @@ fi
 
 # --- General Settings --- #
 ## variables
-PATH=$HOME/.local/bin:$HOME/.local/share/applications/:$HOME/.local/bin/statusbar:$PATH
+PATH=$HOME/.local/bin:$HOME/.local/bin/statusbar:$PATH
 PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH
 export PATH
 export EDITOR=nvim
 export READER=zathura
 
 # fnm
-export PATH="/home/non/.local/share/fnm:$PATH"
+export PATH="$HOME/.local/share/fnm:$PATH"
 eval "$(fnm env)"
 
 ## Background
-/usr/bin/feh --no-fehbg --bg-fill '/home/non/Pictures/wallpaper/gato.png'
+/usr/bin/feh --no-fehbg --bg-fill "$HOME/Pictures/wallpaper/gato.png"
 ## Programs
 tmux has-session -t me || st -n me -e tmux new -s me &
 xss-lock slock &

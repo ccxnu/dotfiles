@@ -43,11 +43,6 @@ alias count="find . -type f | wc -l"
 alias e="exit"
 alias c="clear"
 
-function run() {
-    gcc $1 -lm
-    ./a.out
-}
-
 alias mpvall="mpv --no-terminal . &"
 
 alias cs="xclip -selection clipboard"
@@ -56,5 +51,3 @@ alias vs="xclip -o -selection clipboard"
 alias sharescreen="xrandr --output HDMI1 --mode 1920x1080 --same-as eDP1"
 alias sharescreen_right="xrandr --auto --output HDMI1 --auto --right-of eDP1"
 alias sharescreen_left="xrandr --auto --output HDMI1 --auto --left-of eDP1"
-
-alias openx509="openssl x509 -inform der -noout -text -in"

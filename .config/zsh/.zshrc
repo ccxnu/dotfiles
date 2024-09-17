@@ -8,7 +8,7 @@ fi
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 # History
-export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
+export HISTFILE="$HOME/.cache/zsh/history"
 export HISTSIZE=10000       # Número de comandos a mantener en memoria
 export SAVEHIST=10000      # Número de comandos a guardar en HISTFILE
 export HISTDUP=erase
@@ -72,6 +72,5 @@ source "$HOME/.config/zsh/aliasrc"
 source "$HOME/.config/zsh/.fzf.zsh"
 source "$HOME/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme"
 
-eval "$(zoxide init --cmd cd zsh)"
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

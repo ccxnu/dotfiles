@@ -24,6 +24,7 @@ function Find_Edit() {
         audio/*)                          ncmpcpp "$file" & disown ;;
         *) ;;
     esac
+    zle reset-prompt
 }
 
 # Find Directory and Change
@@ -37,10 +38,12 @@ function Change_Directory() {
     if [[ -n $dir ]]; then
         cd && cd "$dir"
     fi
+    zle accept-line
+    zle reset-prompt
 }
 
 # fh - repeat history
-function Repeat_History() {
+function fh() {
   print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
 }
 
@@ -54,10 +57,9 @@ function Prepend_Sudo {
 zle -N Prepend_Sudo
 zle -N Change_Directory
 zle -N Find_Edit
-zle -N Repeat_History
 
 # BindKeys
 bindkey -M vicmd s Prepend_Sudo
 bindkey '^f' Change_Directory
 bindkey '^g' Find_Edit
-bindkey '^r' Repeat_History
+bindkey -s '^r' 'fh^M'

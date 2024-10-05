@@ -11,6 +11,8 @@ Postman/
 **/dist/
 .cache/
 .astro/
+.appimages/
+.terminfo/
 .cargo/
 .eclipse/
 .floorp/
@@ -24,6 +26,7 @@ Postman/
 .vscode-oss/
 .redis-insight/
 .dbus/
+.docker/
 .icons/
 **.git/
 **.git

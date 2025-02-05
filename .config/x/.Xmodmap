@@ -1,3 +1,1 @@
-remove  mod3 = ISO_Level5_Shift
-keycode  37 = ISO_Level5_Shift
-clear Lock
+pointer = 1 25 3 4 5 6 7 8 9

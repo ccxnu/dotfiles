@@ -11,20 +11,8 @@ if [ -f "$usermodmap" ]; then
 	xmodmap "$usermodmap"
 fi
 
-# --- General Settings --- #
-## variables
-PATH=$HOME/.local/bin:$HOME/.local/bin/statusbar:$PATH
-PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH
-export PATH
-export EDITOR=nvim
-export READER=zathura
-
-# fnm
-export PATH="$HOME/.local/share/fnm:$PATH"
-eval "$(fnm env)"
-
 ## Background
-/usr/bin/feh --no-fehbg --bg-fill "$HOME/Pictures/wallpaper/gato.png"
+/usr/bin/feh --no-fehbg --bg-fill "$HOME/Pictures/wallpaper/internationalSpace.jpg"
 ## Programs
 tmux has-session -t me || st -n me -e tmux new -s me &
 xss-lock slock &

@@ -50,3 +50,22 @@
 
 ## Mount A iso file
   mount -t iso9660 -o ro,loop,noauto /path/your.iso /mnt
+## Create/burn a USB with an iso.
+  sudo dd bs=4M if=/path/to/file.iso of=/dev/sdX status=progress oflag=sync
+
+## Extraer páginas de un pdf
+  pdftk input_file_name.pdf cat 357-368 output output_pdf_file.pdf
+
+## Reducir tamaño pdf
+  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -dColorImageResolution=300 -sOutputFile=pdf_reducido.pdf input_file.pdf
+
+## will list top 10 directories eating disk space in
+du -ha ./ | sort -n -r | head -n 10
+
+## Transform video in mobile compatible
+ffmpeg \
+  -i $1 \
+  -vcodec libx264 \
+  -acodec aac \
+  -filter:v "format=yuv420p" \
+  "$( echo $1 | rev | sed 's|[^\.]*\.||' | rev | sed 's|$|-mobile.mp4|' )"

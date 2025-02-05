@@ -6,6 +6,9 @@
 !.zshenv
 !.gitignore
 !.latexmkrc
+!.inputrc
+!.bashrc
+!.bash_profile
 README.md
 
 ## Local files
@@ -29,5 +32,9 @@ README.md
 !.config/zsh/.zprofile
 !.config/zsh/.zshrc
 !.config/zsh/aliasrc
+!.config/bash/aliasrc
+!.config/bash/fzfrc
+!.config/bash/promptrc
+!.config/bash/scriptrc
 .config/tmux/plugins/
 !.config/tmux/

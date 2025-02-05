@@ -9,8 +9,12 @@
 # Home folders
 Postman/
 **/dist/
+**.venv/
+**.android/
 .cache/
 .astro/
+.arduino15/
+.arduinoIDE/
 .appimages/
 .terminfo/
 .cargo/
@@ -22,6 +26,14 @@ Postman/
 .modelio/
 *modelio/
 .pki/
+.flutter
+.pub-cache/
+*.dart_tool/
+*.dart-tool/
+.dartServer/
+.bun/
+.conda/
+.miniconda3/
 .swt/
 .vscode-oss/
 .redis-insight/
@@ -35,7 +47,9 @@ Postman/
 .npm/
 go/
 *.groovy/
+*.gradle/
 .mozilla/
+.ollama/
 .ssh/
 .supermaven/
 .svelte-kit/

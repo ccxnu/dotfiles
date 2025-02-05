@@ -12,8 +12,8 @@ export FZF_DEFAULT_OPTS="--height 70% \
 function Find_Edit() {
     local file=$(
         fd -t f -H --no-ignore-vcs | \
-            fzf --query="$1" --no-multi --select-1 --exit-0 \
-                --preview 'bat --color=always --style=numbers,changes --line-range :500 {}'
+            fzf --query="$1" --exact --no-multi --select-1 --exit-0 \
+                --preview 'cat {}'
     )
     mimetype=$(file  --dereference --brief --mime-type  "$file" )
     case "$mimetype" in
@@ -32,7 +32,7 @@ function Change_Directory() {
     local dir=$(
     cd && \
         fd -t d -H --no-ignore-vcs | \
-            fzf --query="$1" --no-multi --select-1 --exit-0 \
+            fzf --query="$1" --exact --no-multi --select-1 --exit-0 \
                 --preview 'tree -C {} | head -100'
     )
     if [[ -n $dir ]]; then
@@ -44,7 +44,7 @@ function Change_Directory() {
 
 # fh - repeat history
 function fh() {
-  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac --exact | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
 }
 
 function Prepend_Sudo {
@@ -59,7 +59,6 @@ zle -N Change_Directory
 zle -N Find_Edit
 
 # BindKeys
-bindkey -M vicmd s Prepend_Sudo
 bindkey '^f' Change_Directory
 bindkey '^g' Find_Edit
 bindkey -s '^r' 'fh^M'

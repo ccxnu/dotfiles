@@ -5,7 +5,7 @@ alias xr="sudo xbps-remove -R"
 alias xq="xbps-query"
 alias im="nsxiv"
 
-alias gs='git status'
+alias gst='git status'
 alias gd='git diff'
 alias gl='git log'
 alias gp='git push'
@@ -18,15 +18,16 @@ alias gce="git config user.email"
 alias gcn="git config user.name"
 alias gao='git remote add origin'
 alias guo='git remote set-url origin'
+alias guisw='git update-index --skip-worktree'
 
-alias ls='ls --color=auto'          #size,show type,human readable
-alias la='ls -Ah --color=auto'        #long list,show almost all,show type,human readable
-alias ll='ls -lAh --color=auto'           #long list
-alias lh='ls -ld .* --color=auto'
-alias lt='ls -l --color=auto'
-alias lo='ls -ld */ --color=auto'
+alias ls='ls -F'  # This adds indicators
+alias la='ls -A'        #long list,show almost all,show type,human readable
+alias ll='ls -lAh'           #long list
+alias lh='ls -ld .*'
+alias lt='ls -l'
 
-alias nmount="sudo mount /dev/sdb1 /media -o uid=1000"
+alias nmount="sudo mount /dev/sdb1 /media -o uid=1000,gid=1000"
+alias nwmount="sudo mount -t exfat -o uid=1000,gid=1000 /dev/sdb1 /media"
 alias unmount="sudo umount /dev/sdb1"
 
 alias cpdoc="cp ~/Ists/Plantilla/plantilla.tex"
@@ -51,3 +52,7 @@ alias vs="xclip -o -selection clipboard"
 alias sharescreen="xrandr --output HDMI1 --mode 1920x1080 --same-as eDP1"
 alias sharescreen_right="xrandr --auto --output HDMI1 --auto --right-of eDP1"
 alias sharescreen_left="xrandr --auto --output HDMI1 --auto --left-of eDP1"
+alias sharescreen_all="xrandr --auto --output HDMI1 --auto --primary && xrandr --output eDP1 --off"
+
+alias yt-video="yt-dlp --config-location $HOME/.config/yt-dlp/video.conf"
+alias yt-audio="yt-dlp --config-location $HOME/.config/yt-dlp/audio.conf"

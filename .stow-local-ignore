@@ -1,5 +1,0 @@
-.*\.(swp|swo|zip)
-\suckless
-\.git
-\.gitignore
-README.md

@@ -3,8 +3,12 @@ if [ "$EUID" -eq 0 ]; then
     return # root default
 fi
 
+# User
+export PATH="$HOME/.local/bin:$PATH"
 # Texlive
 export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
+# Adb
+export PATH="$HOME/.local/share/platform-tools:$PATH"
 # Node
 export PATH="$HOME/.local/share/fnm:$PATH"
 eval "$(fnm env)"

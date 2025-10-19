@@ -21,8 +21,8 @@ sudo xbps-install -Su
 # unzip                 # Extract .zip files
 # wget                  # Download files from internet
 # keyd                  # Keyboard remapper daemon to swap locks-esc-ctrl
-# xclip                 # Yank,copy system utility
 # xclip                 # Clipboard manager - copy/paste between X11 and terminal
+# xsct                  # Change screen temperature
 # xss-lock              # Lock screen when X11 screensaver activates
 # xcompmgr              # Compositing manager - enables transparency, shadows, effects
 # xbanish               # Hide mouse cursor when typing (reappears on mouse move)
@@ -48,6 +48,7 @@ sudo xbps-install -Sy \
   wget \
   keyd \
   xclip \
+  xsct \
   xss-lock \
   xcompmgr \
   xbanish \

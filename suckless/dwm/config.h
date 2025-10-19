@@ -120,12 +120,12 @@ static const char *termcmd[]  = { TERMINAL, NULL };
 
 static const char *lockcmd[]  = { "slock", NULL };
 static const char *xsctcmd[]  = { "xsct", "-t", NULL };
-static const char *keyboard[] = { "kbselect", NULL };
 static const char *browser[]  = { BROWSER, NULL };
-static const char *sysact[]   = { "sysact", NULL };
-static const char *capture[]  = { "capture", NULL };
-static const char *passmenu[] = { "passmenu", NULL };
-static const char *xscreen[]   = { "xscreen", NULL };
+static const char *keyboard[] = { "dm-kbselect", NULL };
+static const char *sysact[]   = { "dm-sysact", NULL };
+static const char *capture[]  = { "dm-capture", NULL };
+static const char *passmenu[] = { "dm-pass", NULL };
+static const char *xscreen[]  = { "dm-xscreen", NULL };
 
 /* Preferences */
 #include <X11/XF86keysym.h>

@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# Obtener el nombre del sink predeterminado
+default_sink=$(pactl info | awk -F': ' '/Default Sink/ {print $2}')
+
+# Ver si está muteado
+muted=$(pactl get-sink-mute "$default_sink" | awk '{print $2}')
+
+# Obtener volumen del sink predeterminado
+vol=$(pactl get-sink-volume "$default_sink" | awk '{print $5}' | head -n1 | tr -d '%')
+
+# Si está muteado
+[ "$muted" = "yes" ] && echo ^c#FAF4EB^"MUTED" && exit
+[ "$vol" = 100 ] && echo ^c#a39a5b^" FULL" && exit
+
+# Elegir ícono según volumen
+if [ "$vol" -ge 70 ]; then
+    icon="󰕾 "
+elif [ "$vol" -ge 40 ]; then
+    icon=" "
+elif [ "$vol" -ge 10 ]; then
+    icon=" "
+else
+    icon="  "
+fi
+
+# Mostrar resultado
+echo ^c#a39a5b^"$icon$vol%"

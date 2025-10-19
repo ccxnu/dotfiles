@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Show wifi  (red)  and percent strength or  (normal color) if none.
+
+case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
+down) wifiicon=^c#932020^" " ;;
+up) wifiicon=^c#a38a5b^" " ;;
+	# up) wifiicon=^c#a38a5b^"$(awk '/^\s*w/ { print "   ", int($3 * 100 / 70) "% " }' /proc/net/wireless)" ;;
+esac
+
+echo "$wifiicon "

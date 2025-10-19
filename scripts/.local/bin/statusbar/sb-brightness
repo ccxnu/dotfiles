@@ -1,0 +1,17 @@
+#!/bin/sh
+n=$(light)
+light=$(echo "$n" | cut -d '.' -f 1 | tr -d '\n')
+
+[ "$light" -eq 100 ] && echo ^c#a39a5b^"󰃠" && exit
+
+case 1 in
+$((light >= 90))) icon="󰃝" ;;
+$((light >= 70))) icon="󰃟" ;;
+$((light >= 50))) icon="󰃞" ;;
+$((light >= 25))) icon="󰃜" ;;
+$((light >= 15))) icon="󰃛" ;;
+$((light >= 0))) icon="󰃚" ;;
+*) exit ;;
+esac
+
+echo ^c#a39a5b^"$icon"

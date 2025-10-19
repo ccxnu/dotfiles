@@ -1,0 +1,10 @@
+#!/bin/sh
+
+activeWinLine=$(xprop -root | grep "_NET_ACTIVE_WINDOW(WINDOW)")
+
+case "$(printf "  Window\n󱥫  All\n⭘  Region\n" | dmenu -i -p 'Action: ')" in
+'󱥫  All') scrot -f ~/Pictures/screenshot/$(date +%F_%H%M%S_%N).png ;;
+'  Window') scrot -u -f ~/Pictures/screenshot/$(date +%F_%H%M%S_%N).png ;;
+'⭘  Region') scrot -s -f ~/Pictures/screenshot/$(date +%F_%H%M%S_%N).png ;;
+*) exit 1 ;;
+esac

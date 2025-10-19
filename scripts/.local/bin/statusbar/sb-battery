@@ -1,0 +1,27 @@
+#!/bin/sh
+bat=$(cat /sys/class/power_supply/BAT0/capacity)
+chrg=$(cat /sys/class/power_supply/BAT0/status)
+
+[ "$chrg" = "Charging" ] && echo ^c#135813^"󰂄 $bat%" && exit
+[ "$bat" -eq 100 ] && echo ^c#a38a5b^"󰁹 $bat%" && exit
+
+case 1 in
+$((bat <= 10))) color=#932020 ;;
+$((bat <= 25))) color=#A3665B ;;
+*) color=#a38a5b ;;
+esac
+
+case 1 in
+$((bat >= 90))) icon="󰂂 " ;;
+$((bat >= 80))) icon="󰂁 " ;;
+$((bat >= 70))) icon="󰂀 " ;;
+$((bat >= 50))) icon="󰁾 " ;;
+$((bat >= 40))) icon="󰁽 " ;;
+$((bat >= 30))) icon="󰁼 " ;;
+$((bat >= 20))) icon="󰁻 " ;;
+$((bat >= 10))) icon="󰁺 " ;;
+$((bat >= 0))) icon="󰂃 " ;;
+*) exit ;;
+esac
+
+echo ^c$color^"$icon$bat%"

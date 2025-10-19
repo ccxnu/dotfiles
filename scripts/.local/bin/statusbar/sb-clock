@@ -1,0 +1,8 @@
+#!/bin/sh
+
+#24 hour format
+CURRENTDATEONLY=$(date +"󱑍 %H:%M  󰃮 %a, %B %d")
+#12 hour format
+# CURRENTDATEONLY=`date +"%a %B %d %I:%M:%S %p"`
+
+echo ^c#a38a5b^"${CURRENTDATEONLY}"

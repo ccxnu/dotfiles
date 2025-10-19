@@ -2,7 +2,7 @@
 set -e
 
 ## Suckless
-SUCKLESS_DIR="$HOME/dotfiles/suckless"
+SUCKLESS_DIR="$HOME/.dotfiles/suckless"
 
 if [ ! -d "$SUCKLESS_DIR" ]; then
   echo "Error: $SUCKLESS_DIR not found"

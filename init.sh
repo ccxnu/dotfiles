@@ -15,6 +15,7 @@ sudo xbps-install -Sy \
   gcc \
   make \
   pkg-config \
+  stow \
   tmux \
   neovim \
   fzf \

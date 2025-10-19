@@ -68,7 +68,11 @@ rm IntelOneMono.zip
 fc-cache -fv
 cd -
 
-# Stow dotfiles
+# Dotfiles
+echo "Downloading Dotfiles..."
+git clone https://github.com/ccxnu/dotfiles.git
+cd $HOME/dotfiles
+
 echo "Setting up dotfiles..."
 if [ -d "$HOME/dotfiles" ]; then
   cd "$HOME/dotfiles"
@@ -76,8 +80,8 @@ if [ -d "$HOME/dotfiles" ]; then
   echo "User configs installed"
 
   # System configs (requires password)
-  if [ -d "$HOME/dotfiles/xorg" ]; then
-    sudo stow -d "$HOME/dotfiles" -t / xorg
+  if [ -d "$HOME/dotfiles/system" ]; then
+    sudo stow -d "$HOME/dotfiles" -t / system
     echo "System configs installed"
   fi
 else

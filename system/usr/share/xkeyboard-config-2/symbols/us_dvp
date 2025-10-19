@@ -1,0 +1,79 @@
+// My default dvorak-programmer config.
+// Copy to /usr/share/X11/xkb/symbols/
+// Edit /etc/X11/xorg.conf.d/99-dvp.conf
+
+// programmer Dvorak, by Roland Kaufmann <rlndkfmn at gmail dot com>
+// License: BSD, available at <http://www.kaufmann.no/roland/dvorak/license.html>
+// Main features: Numbers are in shift position (like French), symbols have been
+// placed in locations that give good hand-alternation and finger rolling with
+// symbols that usually follows, accented characters are possible for I18N.
+// Patch suggestions should be sent upstream.
+// This is an edited version for spanish and custom symbols
+partial alphanumeric_keys
+xkb_symbols "dvp" {
+
+    name[Group1] = "Dvorak Programmer Extended";
+
+    key.type[Group1] = "FOUR_LEVEL";
+    //           [         None,       Shift,               AltGr,    Shift+AltGr  ]
+    // symbols row
+    key <TLDE> { [       dollar,  asciitilde,          dead_tilde,       NoSymbol  ] };
+    key <AE01> { [    ampersand,     percent,          dead_acute,       NoSymbol  ] };
+    key <AE02> { [  bracketleft,           7,            currency,       NoSymbol  ] };
+    key <AE03> { [    braceleft,           5,                cent,       NoSymbol  ] };
+    key <AE04> { [   braceright,           3,            EuroSign,       NoSymbol  ] };
+    key <AE05> { [    parenleft,           1,                 yen,       NoSymbol  ] };
+    key <AE06> { [        equal,           9,            sterling,       NoSymbol  ] };
+    key <AE07> { [     asterisk,           0,            NoSymbol,       NoSymbol  ] };
+    key <AE08> { [   parenright,           2,             onehalf,       NoSymbol  ] };
+    key <AE09> { [         plus,           4,            NoSymbol,       NoSymbol  ] };
+    key <AE10> { [ bracketright,           6,            NoSymbol,       NoSymbol  ] };
+    key <AE11> { [       exclam,           8,          exclamdown,          U2E18  ] };
+    key <AE12> { [   numbersign,       grave,          dead_grave,       NoSymbol  ] };
+
+    // upper row
+    key <AD01> { [    semicolon,       colon,      dead_diaeresis,       NoSymbol  ] };
+    key <AD02> { [        comma,        less,       guillemotleft,          U201C  ] };
+    key <AD03> { [       period,     greater,      guillemotright,          U201D  ] };
+    key <AD04> { [            p,           P,           paragraph,        section  ] };
+    key <AD05> { [            y,           Y,          udiaeresis,     Udiaeresis  ] };
+    key <AD06> { [            f,           F,            NoSymbol,       NoSymbol  ] };
+    key <AD07> { [            g,           G,            NoSymbol,       NoSymbol  ] };
+    key <AD08> { [            c,           C,            ccedilla,       Ccedilla  ] };
+    key <AD09> { [            r,           R,          registered,      trademark  ] };
+    key <AD10> { [            l,           L,            NoSymbol,       NoSymbol  ] };
+    key <AD11> { [        slash,    question,        questiondown,      copyright  ] };
+    key <AD12> { [           at, asciicircum,     dead_circumflex,     dead_caron  ] };
+
+    // home row
+    key <AC01> { [            a,           A,              aacute,         Aacute  ] };
+    key <AC02> { [            o,           O,              oacute,         Oacute  ] };
+    key <AC03> { [            e,           E,              eacute,         Eacute  ] };
+    key <AC04> { [            u,           U,              uacute,         Uacute  ] };
+    key <AC05> { [            i,           I,             iacute,          Iacute  ] };
+    key <AC06> { [            d,           D,           therefore,        because  ] };
+    key <AC07> { [            h,           H,            notequal,       NoSymbol  ] };
+    key <AC08> { [            t,           T,             notsign,       NoSymbol  ] };
+    key <AC09> { [            n,           N,              ntilde,         Ntilde  ] };
+    key <AC10> { [            s,           S,  enfilledcircbullet,       NoSymbol  ] };
+    key <AC11> { [        minus,  underscore,              macron,    dead_macron  ] };
+    key <BKSL> { [    backslash,         bar,              degree,      brokenbar  ] };
+
+    // lower row
+    key <LSGT> { [      Shift_L,     Shift_L  ] }; // For ISO keyb    oard on ANSII
+    key <AB01> { [   apostrophe,    quotedbl,            NoSymbol,       NoSymbol  ] };
+    key <AB02> { [            q,           Q,                  ae,             AE  ] };
+    key <AB03> { [            j,           J,               aring,          Aring  ] };
+    key <AB04> { [            k,           K,              oslash,         Oslash  ] };
+    key <AB05> { [            x,           X,            NoSymbol,       NoSymbol  ] };
+    key <AB06> { [            b,           B,            NoSymbol,       NoSymbol  ] };
+    key <AB07> { [            m,           M,            multiply,       division  ] };
+    key <AB08> { [            w,           W,            NoSymbol,       NoSymbol  ] };
+    key <AB09> { [            v,           V,            NoSymbol,       NoSymbol  ] };
+    key <AB10> { [            z,           Z,            NoSymbol,       NoSymbol  ] };
+
+    // key <SPCE>	{ [        space,       space,    nobreakspace,   NoSymbol  ] };
+
+    // do NOT hardcode this switch; use lv3:ralt_switch option instead!
+    include "level3(ralt_switch)"
+};

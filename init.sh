@@ -21,6 +21,7 @@ sudo xbps-install -Su
 # unzip                 # Extract .zip files
 # wget                  # Download files from internet
 # keyd                  # Keyboard remapper daemon to swap locks-esc-ctrl
+# xclip                 # Yank,copy system utility
 # xorg-minimal          # Minimal X11 server (display system)
 # libX11-devel          # X11 libraries + headers (needed to compile dwm, st)
 # libXinerama-devel     # Multi-monitor support library (for dwm multimonitor patch)
@@ -42,6 +43,7 @@ sudo xbps-install -Sy \
   unzip \
   wget \
   keyd \
+  xclip \
   xorg-minimal \
   libX11-devel \
   libXinerama-devel \

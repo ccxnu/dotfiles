@@ -36,7 +36,7 @@ static const char *colors[][3] = {
 };
 
 /*  Fonts  */
-static const char *fonts[] = { "IntoneMono Nerd Font Mono:size=9:antialias=true:autohint=true" };
+static const char *fonts[] = { "IntoneMono Nerd Font Mono:size=8:antialias=true:autohint=true" };
 
 /* Tagging */
 static const char *tags[] = { " ", " ", " " };
@@ -46,16 +46,14 @@ typedef struct {
   const char *name;
   const void *cmd;
 } Sp;
-const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "110x30", NULL};
-const char *spcmd2[] = {TERMINAL, "-n", "spcalc", "-f", "JetBrainsMono Nerd Font:size=12", "-g", "35x12", "-e", "qalc", NULL};
-const char *spcmd3[] = {TERMINAL, "-n", "spclok", "-g", "37x09", "-e", "tty-clock", "-C", "7", NULL};
-const char *spcmd4[] = {TERMINAL, "-n", "spaudi", "-g", "100x26", "-e", "pulsemixer", NULL};
+const char *spcmd1[] = {TERMINAL, "-n", "spcalc", "-f", "JetBrainsMono Nerd Font:size=12", "-g", "35x12", "-e", "qalc", NULL};
+const char *spcmd2[] = {TERMINAL, "-n", "spclok", "-g", "37x09", "-e", "tty-clock", "-C", "7", NULL};
+const char *spcmd3[] = {TERMINAL, "-n", "spaudi", "-g", "100x26", "-e", "pulsemixer", NULL};
 static Sp scratchpads[] = {
   /* name      cmd  */
-  { "spterm", spcmd1 },
-  { "spcalc", spcmd2 },
-  { "spclok", spcmd3 },
-  { "spaudi", spcmd4 },
+  { "spcalc", spcmd1 },
+  { "spclok", spcmd2 },
+  { "spaudi", spcmd3 },
 };
 
 static const Rule rules[] = {
@@ -68,10 +66,9 @@ static const Rule rules[] = {
   { TERMCLASS,    NULL,         NULL,          0,    0,    1,    0,    -1 },
   { TERMCLASS,    "floatterm",  NULL,          0,    1,    1,    0,    -1 },
   { TERMCLASS,    "bg",         NULL,     1 << 7,    0,    1,    0,    -1 },
-  { TERMCLASS,    "spterm",     NULL,   SPTAG(0),    1,    1,    0,    -1 },
-  { TERMCLASS,    "spcalc",     NULL,   SPTAG(1),    1,    1,    0,    -1 },
-  { TERMCLASS,    "spclok",     NULL,   SPTAG(2),    1,    1,    0,    -1 },
-  { TERMCLASS,    "spaudi",     NULL,   SPTAG(3),    1,    1,    0,    -1 },
+  { TERMCLASS,    "spcalc",     NULL,   SPTAG(0),    1,    1,    0,    -1 },
+  { TERMCLASS,    "spclok",     NULL,   SPTAG(1),    1,    1,    0,    -1 },
+  { TERMCLASS,    "spaudi",     NULL,   SPTAG(2),    1,    1,    0,    -1 },
 };
 
 /* Layout(s) */
@@ -126,6 +123,7 @@ static const char *sysact[]   = { "dm-sysact", NULL };
 static const char *capture[]  = { "dm-capture", NULL };
 static const char *passmenu[] = { "dm-pass", NULL };
 static const char *xscreen[]  = { "dm-xscreen", NULL };
+static const char *emacsc[]   = { "emacsclient", "-c", "-a", "", NULL };
 
 /* Preferences */
 #include <X11/XF86keysym.h>
@@ -148,10 +146,9 @@ static const Key keys[] = {
 	{ MSHIFT,    XK_v,              setlayout,          {0} },
 
   // FLOATING WINDOWS
-	{ MODKEY,    XK_p,              togglescratch,      { .ui = 3 } }, // Pavucontrol
-	{ MODKEY,    XK_apostrophe,     togglescratch,      { .ui = 1 } }, // Calculator
-	{ MODKEY,    XK_semicolon,      togglescratch,      { .ui = 2 } }, // Clock
-	{ MSHIFT,    XK_Return,         togglescratch,      { .ui = 0 } }, // Terminal
+	{ MODKEY,    XK_p,              togglescratch,      { .ui = 2 } }, // Pavucontrol
+	{ MODKEY,    XK_apostrophe,     togglescratch,      { .ui = 0 } }, // Calculator
+	{ MODKEY,    XK_semicolon,      togglescratch,      { .ui = 1 } }, // Clock
 	{ MSHIFT,    XK_f,              togglefloating,     {0} },
 
   /* GENERAL SYSTEM KEYMAPS */
@@ -177,6 +174,7 @@ static const Key keys[] = {
 
   /* PERSONAL COMMANDS */
 	{ MODKEY,    XK_Return,         spawn,      { .v = termcmd  } },
+	{ MSHIFT,    XK_Return,         spawn,      { .v = emacsc   } }, // Emacs client
 	{ MODKEY,    XK_d,              spawn,      { .v = dmenucmd } }, // dmenu
 	{ MSHIFT,    XK_d,              spawn,      { .v = passmenu } }, // passmenu
 	{ MODKEY,    XK_bracketleft,    spawn,      { .v = browser  } }, // Firefox

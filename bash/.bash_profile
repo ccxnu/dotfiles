@@ -1,7 +1,4 @@
 # --- General Settings --- #
-if [ "$EUID" -eq 0 ]; then
-    return # root default
-fi
 
 # User
 export PATH="$HOME/.local/bin:$PATH"
@@ -17,17 +14,18 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 # Golang
 export GOPATH=$HOME/.go
+export PATH="$GOPATH/bin:$PATH"
 
 export EDITOR=nvim
+export VISUAL=nvim
 export READER=zathura
 export BROWSER=Floorp
 export TERMINAL=st
 
 ## Source .bashrc for interactive shells
-if [[ $- == *i* ]]; then
-  [[ -f ~/.bashrc ]] && source ~/.bashrc
-fi
+[[ -f ~/.bashrc ]] && source ~/.bashrc
 
-if [[ ! $DISPLAY ]] && [[ $XDG_VTNR -eq 1 ]]; then
-  exec startx >/dev/null 2>&1   # remove the exec to remain logged in when your wm ends
+# Start X on tty1
+if [[ -z $DISPLAY ]] && [[ $XDG_VTNR -eq 1 ]]; then
+    exec startx >/dev/null 2>&1   # remove the exec to remain logged in when your wm ends
 fi

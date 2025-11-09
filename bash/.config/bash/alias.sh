@@ -4,6 +4,7 @@ alias xi="sudo xbps-install"
 alias xr="sudo xbps-remove -R"
 alias xq="xbps-query"
 alias im="nsxiv"
+alias em='emacsclient -c -a ""'
 
 alias gp='git push'
 alias gpu='git push -u origin main'

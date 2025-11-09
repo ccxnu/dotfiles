@@ -71,6 +71,6 @@ fh() {
 #}}}
 
 # BindKeys
-#bind -x '"\C-f": fcd' # There's a problem. It don't update the prompt to shows the current folder
-bind -x '"\C-g": ffe'
-bind -x '"\C-r": fh'
+bind -x '"\ef": fcd'     # Alt-f (was C-f forward char)
+bind -x '"\eg": ffe'     # Alt-g (was C-g cancel)
+bind -x '"\C-t": fh'     # C-t is less critical than C-r

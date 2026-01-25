@@ -9,7 +9,7 @@ local M = {
 	default_file_explorer = true,
 	columns = {},
 	view_options = {
-		show_hidden = false,
+		show_hidden = true,
 		is_hidden_file = function(name, _)
 			return vim.startswith(name, ".")
 		end,

@@ -124,6 +124,7 @@ static const char *capture[]  = { "dm-capture", NULL };
 static const char *passmenu[] = { "dm-pass", NULL };
 static const char *xscreen[]  = { "dm-xscreen", NULL };
 static const char *emacsc[]   = { "emacsclient", "-c", "-a", "", NULL };
+static const char *clipbrd[]  = { "dm-clipboard", NULL };
 
 /* Preferences */
 #include <X11/XF86keysym.h>
@@ -184,6 +185,7 @@ static const Key keys[] = {
 	{ MSHIFT,    XK_s,              spawn,      { .v = xsctcmd  } }, // Set color temperature of screen
 	{ 0,         XK_F7,             spawn,      { .v = lockcmd  } }, // Lock screen
 	{ 0,         XK_F8,             spawn,      { .v = xscreen  } }, // Share screen
+	{ MODKEY,    XK_v,              spawn,      { .v = clipbrd  } }, // Clipboard with dmenu
 
   /* Audio Output */
 	{ MSHIFT,    XK_ampersand,      spawn,      SHCMD("pacmd set-sink-port alsa_output.pci-0000_00_1b.0.analog-stereo analog-output-speaker") },

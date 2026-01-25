@@ -4,7 +4,7 @@
 ===================================== */
 
 /* FONT & BORDER */
-static char *font = "IntoneMono Nerd Font Mono:pixelsize=16:antialias=true:autohint=true";
+static char *font = "IntoneMono Nerd Font Mono:pixelsize=15:antialias=true:autohint=true";
 static int borderpx = 0; // To put padding between content and screen
 
 /* SHELL */
@@ -68,7 +68,7 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.92;
+float alpha = 1.0;
 float alphaOffset = 0.0;
 float alphaUnfocus;
 
@@ -77,32 +77,57 @@ float alphaUnfocus;
 /* Base16 - Apathy */
 
 static const char *colorname[] = {
-    "#191724",    //  0: black
-    "#893f45",    //  1: red
-    "#5F8686",    //  2: green
-    "#C99D5D",    //  3: yellow
-    "#31748F",    //  4: blue
-    "#B294BB",    //  5: magenta
-    "#CDB1B7",    //  6: cyan
-    "#E7DEC3",    //  7: white
-
-    "#26233A",    //  8: brblack
-    "#EB6F92",    //  9: brred
-    "#9CCFD8",    // 10: brgreen
-    "#F6C177",    // 11: bryellow
-    "#3e8fb0",    // 12: brblue
-    "#C4A7E7",    // 13: brmagenta
-    "#EBBCBA",    // 14: brcyan
-    "#E0DEF4",    // 15: brwhite
-
+    "#CDCDCD",    //  0: black
+    "#B0151A",    //  1: red
+    "#388E3C",    //  2: green
+    "#A0881F",    //  3: yellow
+    "#0B4F79",    //  4: blue
+    "#682A9B",    //  5: magenta
+    "#2B7489",    //  6: cyan
+    "#929292",    //  7: white
+    "#7F7F7F",    //  8: brblack
+    "#D12F1B",    //  9: brred
+    "#467A3C",    // 10: brgreen
+    "#78492A",    // 11: bryellow
+    "#2F70A1",    // 12: brblue
+    "#B32EBF",    // 13: brmagenta
+    "#32839A",    // 14: brcyan
+    "#262626",    // 15: brwhite
     [255] = 0,
-
     /* more colors can be added after 255 to use with DefaultXX */
-    "#000B0E", /* 256: default background colour */
-    "#F2EFEB", /* 257: default foreground colour */
-    "#c8d3f5", /* 258: default cursor colour */
-    "#3654a7", /* 259: default reverse cursor colour */
+    "#fdf6e3",    /* 256: default background colour (Solarized Light base3) */
+    "#262626",    /* 257: default foreground colour (Xcode Light foreground) */
+    "#262626",    /* 258: default cursor colour */
+    "#CDCDCD",    /* 259: default reverse cursor colour */
 };
+
+// static const char *colorname[] = {
+//     "#191724",    //  0: black
+//     "#893f45",    //  1: red
+//     "#5F8686",    //  2: green
+//     "#C99D5D",    //  3: yellow
+//     "#31748F",    //  4: blue
+//     "#B294BB",    //  5: magenta
+//     "#CDB1B7",    //  6: cyan
+//     "#E7DEC3",    //  7: white
+//
+//     "#26233A",    //  8: brblack
+//     "#EB6F92",    //  9: brred
+//     "#9CCFD8",    // 10: brgreen
+//     "#F6C177",    // 11: bryellow
+//     "#3e8fb0",    // 12: brblue
+//     "#C4A7E7",    // 13: brmagenta
+//     "#EBBCBA",    // 14: brcyan
+//     "#E0DEF4",    // 15: brwhite
+//
+//     [255] = 0,
+//
+//     /* more colors can be added after 255 to use with DefaultXX */
+//     "#000B0E", /* 256: default background colour */
+//     "#F2EFEB", /* 257: default foreground colour */
+//     "#c8d3f5", /* 258: default cursor colour */
+//     "#3654a7", /* 259: default reverse cursor colour */
+// };
 
 
 /*
@@ -167,33 +192,31 @@ static MouseShortcut mshortcuts[] = {
 
 static char *openurlcmd[] = {"/bin/sh", "-c", "st-urlhandler -o", "externalpipe", NULL};
 static char *copyurlcmd[] = {"/bin/sh", "-c", "st-urlhandler -c", "externalpipe", NULL};
-static char *copyoutput[] = {"/bin/sh", "-c", "st-copyout", "externalpipe", NULL};
 
 static Shortcut shortcuts[] = {
-	/* mask                 keysym          function        argument */
-	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i = 0} },
-	{ ControlMask,          XK_Print,       toggleprinter,  {.i = 0} },
-	{ ShiftMask,            XK_Print,       printscreen,    {.i = 0} },
-	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i = 0} },
-	{ TERMMOD,              XK_Y,           selpaste,       {.i = 0} },
-	{ ShiftMask,            XK_Insert,      selpaste,       {.i = 0} },
-	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i = 0} },
-    /* PERSONAL KEYS */
+    /* mask                 keysym          function        argument */
+    /* CLIPBOARD */
     { MODKEY,               XK_c,           clipcopy,       {.i = 0} },
     { MODKEY,               XK_v,           clippaste,      {.i = 0} },
-    { MODKEY,               XK_u,           kscrollup,      {.i = -1}},
-    { MODKEY,               XK_d,           kscrolldown,    {.i = -1}},
-    { MODKEY,               XK_k,           kscrollup,      {.i = 1} },
-    { MODKEY,               XK_j,           kscrolldown,    {.i = 1} },
-    { MODKEY,               XK_s,           changealpha,    {.f = -0.02}},
-    { MODKEY,               XK_a,           changealpha,    {.f = +0.02}},
-	{ ControlMask,          XK_plus,        zoom,           {.f = +1} },
-	{ ControlMask,          XK_minus,       zoom,           {.f = -1} },
-    { ControlMask,          XK_numbersign,  zoomreset,      {.f = 0} },
-    /* ST SCRIPTS */
-    { MODKEY,               XK_l,           externalpipe,   {.v = openurlcmd}},
-    { MODKEY,               XK_c,           externalpipe,   {.v = copyurlcmd}},
-    { MODKEY,               XK_o,           externalpipe,   {.v = copyoutput}},
+
+    /* SCROLLING */
+    { TERMMOD,               XK_u,           kscrollup,      {.i = -1}},
+    { TERMMOD,               XK_d,           kscrolldown,    {.i = -1}},
+    { TERMMOD,               XK_k,           kscrollup,      {.i = 1} },
+    { TERMMOD,               XK_j,           kscrolldown,    {.i = 1} },
+
+    /* ALPHA */
+    { TERMMOD,               XK_s,           changealpha,    {.f = -0.02}},
+    { TERMMOD,               XK_a,           changealpha,    {.f = +0.02}},
+
+    /* ZOOM */
+    { ControlMask,          XK_plus,        zoom,           {.f = +1} },
+    { ControlMask,          XK_minus,       zoom,           {.f = -1} },
+    { ControlMask,          XK_0,           zoomreset,      {.f = 0} },
+
+    /* URL HANDLING */
+    { TERMMOD,               XK_l,           externalpipe,   {.v = openurlcmd}},
+    { TERMMOD,               XK_c,           externalpipe,   {.v = copyurlcmd}},
 };
 
 /*

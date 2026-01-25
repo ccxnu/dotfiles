@@ -1,0 +1,26 @@
+#!/bin/sh
+
+HIST="$HOME/.cache/clipboard_history"
+MAX=200
+
+mkdir -p "$HOME/.cache"
+touch "$HIST"
+
+LAST=""
+
+while true; do
+    [ -n "$SY_CLIPBOARD_INTERNAL" ] && sleep 0.5 && continue
+
+    CUR="$(xclip -o -selection clipboard 2>/dev/null)"
+    [ -z "$CUR" ] && sleep 0.5 && continue
+
+    ONE_LINE="$(printf "%s" "$CUR" | sed ':a;N;$!ba;s/\n/\\n/g')"
+
+    if [ "$ONE_LINE" != "$LAST" ]; then
+        printf "%s\n" "$ONE_LINE" >> "$HIST"
+        tail -n "$MAX" "$HIST" > "$HIST.tmp" && mv "$HIST.tmp" "$HIST"
+        LAST="$ONE_LINE"
+    fi
+
+    sleep 0.5
+done

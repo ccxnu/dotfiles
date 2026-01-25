@@ -50,7 +50,6 @@ sudo xbps-install -Sy \
   xclip \
   xsct \
   xss-lock \
-  xcompmgr \
   xbanish \
   xorg-minimal \
   libX11-devel \

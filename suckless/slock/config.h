@@ -30,4 +30,4 @@ static const char * message =
 static const char * text_color = "#F2EFEB";
 
 /* text size (must be a valid size) */
-static char *font = "IntoneMono Nerd Font Mono:pixelsize=16:antialias=true:autohint=true";
+static const char * font_name = "IntoneMono Nerd Font Mono:pixelsize=18:antialias=true:autohint=true";

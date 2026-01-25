@@ -4,6 +4,10 @@
       "rev": "a4ab037",
       "src": "https://github.com/saghen/blink.cmp"
     },
+    "claude-code.nvim": {
+      "rev": "c9a31e5",
+      "src": "https://github.com/greggh/claude-code.nvim"
+    },
     "compl.nvim": {
       "rev": "b9c3811",
       "src": "https://github.com/ccxnu/compl.nvim"
@@ -28,9 +32,25 @@
       "rev": "29c50dd",
       "src": "https://github.com/vieitesss/miniharp.nvim"
     },
+    "nvim-dap": {
+      "rev": "6782b09",
+      "src": "https://github.com/mfussenegger/nvim-dap"
+    },
+    "nvim-dap-go": {
+      "rev": "b442115",
+      "src": "https://github.com/leoluz/nvim-dap-go"
+    },
+    "nvim-dap-ui": {
+      "rev": "cf91d5e",
+      "src": "https://github.com/rcarriga/nvim-dap-ui"
+    },
     "nvim-lspconfig": {
       "rev": "ac98db2",
       "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-nio": {
+      "rev": "21f5324",
+      "src": "https://github.com/nvim-neotest/nvim-nio"
     },
     "nvim-treesitter": {
       "rev": "42fc28ba",
@@ -43,6 +63,22 @@
     "persistence.nvim": {
       "rev": "51eef57",
       "src": "https://github.com/folke/persistence.nvim"
+    },
+    "solarized-osaka.nvim": {
+      "rev": "f796014",
+      "src": "https://github.com/craftzdog/solarized-osaka.nvim"
+    },
+    "typst-preview.nvim": {
+      "rev": "285d040",
+      "src": "https://github.com/chomosuke/typst-preview.nvim"
+    },
+    "vim-colors-xcode": {
+      "rev": "6d44922",
+      "src": "https://github.com/lunacookies/vim-colors-xcode"
+    },
+    "vim-humanoid-colorscheme": {
+      "rev": "f1b442b",
+      "src": "https://github.com/humanoid-colors/vim-humanoid-colorscheme"
     },
     "vimtex": {
       "rev": "be9deac3",

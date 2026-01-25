@@ -18,7 +18,7 @@ vim.diagnostic.config({
 	},
 })
 
-local servers = { "lua_ls", "gopls", "biome", "texlab", "vtsls" }
+local servers = { "lua_ls", "gopls", "biome", "texlab", "vtsls", "tinymist" }
 
 local on_init = function(client, _)
 	if client:supports_method("textDocument/semanticTokens") then
@@ -52,5 +52,14 @@ vim.lsp.config("lua_ls", {
 })
 
 vim.lsp.config("vtsls", { offset_encoding = "utf-8" })
+
+vim.lsp.config("tinymist",{
+    cmd = { "tinymist" }, -- Ensure this matches your tinymist executable path
+    filetypes = { "typst" },
+    settings = {
+        exportPdf = "never", -- onSave, onType, never
+        outputPath = "$dir/$name.pdf", -- root, dir
+    }
+})
 
 vim.lsp.enable(servers)

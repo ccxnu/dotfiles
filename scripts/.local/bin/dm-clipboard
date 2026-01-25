@@ -1,0 +1,16 @@
+#!/bin/sh
+
+HIST="$HOME/.cache/clipboard_history"
+[ -f "$HIST" ] || exit 1
+
+SEL="$(printf "[clear]\n%s" "$(tac "$HIST")" | dmenu -i -l 10 -p 'Clipboard:')"
+[ -z "$SEL" ] && exit 1
+
+if [ "$SEL" = "[clear]" ]; then
+    : > "$HIST"
+    xclip -selection clipboard /dev/null
+    exit 0
+fi
+
+SY_CLIPBOARD_INTERNAL=1 \
+printf "%s" "$SEL" | sed 's/\\n/\n/g' | xclip -selection clipboard

@@ -4,14 +4,6 @@
 export PATH="$HOME/.local/bin:$PATH"
 # Texlive
 export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
-# Adb
-export PATH="$HOME/.local/share/platform-tools:$PATH"
-# Node
-export PATH="$HOME/.local/share/fnm:$PATH"
-eval "$(fnm env)"
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 # Golang
 export GOPATH=$HOME/.go
 export PATH="$GOPATH/bin:$PATH"

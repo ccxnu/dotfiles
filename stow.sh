@@ -18,7 +18,7 @@ fi
 cd "$HOME/.dotfiles"
 
 # User packages
-PACKAGES="bash home nvim tmux scripts"
+PACKAGES="home tmux scripts"
 for pkg in $PACKAGES; do
   if [ -d "$pkg" ]; then
     stow "$pkg"

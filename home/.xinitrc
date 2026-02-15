@@ -1,5 +1,11 @@
 #!/bin/sh
 
+userresources=$HOME/.config/x/.Xresources
+
+if [ -f "$userresources" ]; then
+    xrdb -merge "$userresources"
+fi
+
 ## Background
 /usr/bin/feh --no-fehbg --bg-center "$HOME/Pictures/wallpaper/spaceCraftCenter.webp"
 

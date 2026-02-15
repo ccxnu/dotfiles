@@ -36,7 +36,7 @@ static const char *colors[][3] = {
 };
 
 /*  Fonts  */
-static const char *fonts[] = { "IntoneMono Nerd Font Mono:size=8:antialias=true:autohint=true" };
+static const char *fonts[] = { "IntoneMono Nerd Font Mono:size=9:antialias=true:autohint=true" };
 
 /* Tagging */
 static const char *tags[] = { " ", " ", " " };

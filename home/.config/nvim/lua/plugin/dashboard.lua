@@ -1,7 +1,3 @@
-vim.pack.add({
-	{ src = "https://github.com/nvimdev/dashboard-nvim" },
-})
-
 local logo = [[
    |\      _,,,---,,_
 ZZZzz /,`.-'`'    -.  ;-;;,_
